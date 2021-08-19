@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleaning database..."
+Movie.destroy_all
+
+puts "Creating restaurants..."
+
+8.times do
+  movie = Movie.create!(
+    title: Faker::Movie.title,
+    overview: Faker::JapaneseMedia::StudioGhibli.quote,
+    poster_url: "https://image.tmdb.org/t/p/original/#{Faker::Blockchain::Aeternity.transaction}.jpg",
+    rating: rand(0..100) / 10
+  )
+  movie.save
+  puts "Created restaurant with id #{movie.id}"
+end
