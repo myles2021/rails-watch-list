@@ -9,7 +9,7 @@
 puts "Cleaning database..."
 Movie.destroy_all
 
-puts "Creating restaurants..."
+puts "Creating movies..."
 
 8.times do
   movie = Movie.create!(
@@ -19,5 +19,5 @@ puts "Creating restaurants..."
     rating: rand(0..100) / 10
   )
   movie.save
-  puts "Created restaurant with id #{movie.id}"
+  puts "Created movie with id #{movie.id}"
 end
